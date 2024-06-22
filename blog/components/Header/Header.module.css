@@ -1,0 +1,26 @@
+.header {
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1126px;
+    box-sizing: border-box;
+    padding: 10px;
+    height: 100px;
+    margin: 0 auto;
+}
+
+.logo a {
+	font-weight: 300;
+	font-size: 40px;
+	color: #000;
+    transition: all 0.3s;
+    text-decoration: none;
+}
+
+.logo a:hover {
+    color: #1473e6;
+}
+
+.git:hover path {
+    stroke: #1473e6;
+}
