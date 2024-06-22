@@ -2,13 +2,24 @@
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./app/page.module.css ***!
   \***************************************************************************************************************************************************************************************************************************************************************/
 .page_card-list__a9KF4 {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 30px;
     gap: 30px;
     flex-wrap: wrap;
     max-width: 1120px;
     margin: 0 auto;
     align-items: center;
     height: 100vh;
+}
+
+@media(max-width: 768px) {
+    .page_card-list__a9KF4 {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        box-sizing: border-box;
+        padding: 0 15px;
+    }
 }
 /*!***************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./components/Htag/Htag.module.css ***!
@@ -102,14 +113,15 @@
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./components/Header/Header.module.css ***!
   \*******************************************************************************************************************************************************************************************************************************************************************************/
 .Header_header__pXml_ {
-	display: flex;
+	display: grid;
+    grid-template-columns: auto auto;
     justify-content: space-between;
     align-items: center;
-    max-width: 1126px;
+    max-width: 1120px;
     box-sizing: border-box;
-    padding: 10px;
     height: 100px;
     margin: 0 auto;
+    margin-bottom: 20px;
 }
 
 .Header_logo__sUWiP a {
@@ -127,6 +139,12 @@
 .Header_git__Gtk2Y:hover path {
     stroke: #1473e6;
 }
+
+@media(max-width: 1024px) {
+    .Header_header__pXml_ {
+        padding: 0 15px;
+    }
+}
 /*!***************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./components/Card/Card.module.css ***!
   \***************************************************************************************************************************************************************************************************************************************************************************/
@@ -136,16 +154,18 @@
 	padding: 10px;
 	box-sizing: border-box;
 	background: #fff;
-	width: calc(33.333% - 20px);
-	display: flex;
-	flex-direction: column;
+	/* display: flex;
+	flex-direction: column; */
+	display: grid;
+	grid-template-rows: 200px 1fr;
+	grid-gap: 15px;
 	gap: 15px;
+	height: 100%;
 }
 
 .Card_card__img__GK3EZ {
 	border-radius: 5px;
 	width: 100%;
-	height: 200px;
 	background: #e5f4ff;
 	box-sizing: border-box;
 	padding: 5px 15px;
@@ -158,16 +178,17 @@
 }
 
 .Card_card-body___hQAw {
-	flex: 1 1;
-	display: flex;
-	flex-direction: column;
+	display: grid;
+	grid-template-rows: 1fr auto;
 	justify-content: space-between;
 	width: 100%;
+	grid-gap: 15px;
 	gap: 15px;
 }
 
 .Card_card-body__top__vdkRT {
-	display: flex;
+	display: grid;
+	grid-template-columns: auto auto;
 	width: 100%;
 	justify-content: space-between;
 	align-items: center;
@@ -181,7 +202,8 @@
 }
 
 .Card_card-body__bottom__QdoTK {
-	display: flex;
+	display: grid;
+	grid-template-columns: auto auto;
 	justify-content: space-between;
 	align-items: center;
 }
