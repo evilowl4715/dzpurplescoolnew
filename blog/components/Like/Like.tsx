@@ -5,6 +5,9 @@ import cn from 'classnames';
 import LikeIcon from '../../public/like.svg';
 import { useEffect, useState } from 'react';
 
+// У МЕНЯ 3 РАЗА ЗАПАРА БЫЛА С ГИТОМ 
+// ПОЭТОМУ ТУТ ИЗМЕНЕНИЯ ПО ЛАЙКАМ, КОМЕНТ СТАВЛЮ ЧТО БЫ ЗАПУШИЛОСЬ В ВЕТКУ
+
 export const Like = ({
 	children,
 	isActive = false,
