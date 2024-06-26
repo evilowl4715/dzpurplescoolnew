@@ -4,16 +4,17 @@
 	padding: 10px;
 	box-sizing: border-box;
 	background: #fff;
-	width: calc(33.333% - 20px);
-	display: flex;
-	flex-direction: column;
+	/* display: flex;
+	flex-direction: column; */
+	display: grid;
+	grid-template-rows: 200px 1fr;
 	gap: 15px;
+	height: 100%;
 }
 
 .card__img {
 	border-radius: 5px;
 	width: 100%;
-	height: 200px;
 	background: #e5f4ff;
 	box-sizing: border-box;
 	padding: 5px 15px;
@@ -26,16 +27,16 @@
 }
 
 .card-body {
-	flex: 1;
-	display: flex;
-	flex-direction: column;
+	display: grid;
+	grid-template-rows: 1fr auto;
 	justify-content: space-between;
 	width: 100%;
 	gap: 15px;
 }
 
 .card-body__top {
-	display: flex;
+	display: grid;
+	grid-template-columns: auto auto;
 	width: 100%;
 	justify-content: space-between;
 	align-items: center;
@@ -49,7 +50,8 @@
 }
 
 .card-body__bottom {
-	display: flex;
+	display: grid;
+	grid-template-columns: auto auto;
 	justify-content: space-between;
 	align-items: center;
 }

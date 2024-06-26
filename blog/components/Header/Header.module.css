@@ -1,0 +1,33 @@
+.header {
+	display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1120px;
+    box-sizing: border-box;
+    height: 100px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.logo a {
+	font-weight: 300;
+	font-size: 40px;
+	color: #000;
+    transition: all 0.3s;
+    text-decoration: none;
+}
+
+.logo a:hover {
+    color: #1473e6;
+}
+
+.git:hover path {
+    stroke: #1473e6;
+}
+
+@media(max-width: 1024px) {
+    .header {
+        padding: 0 15px;
+    }
+}
