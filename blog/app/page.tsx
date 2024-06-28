@@ -6,11 +6,6 @@ export default function Home() {
 		<main className={styles.main}>
 			<div className={styles['card-list']}>
 				<Card/>
-				<Card/>
-				<Card/>
-				<Card/>
-				<Card/>
-				<Card/>
 			</div>
 		</main>
 	);
