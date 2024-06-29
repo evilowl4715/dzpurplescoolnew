@@ -13,8 +13,7 @@ export default function LikeClient({ postId }: LikeClientProps) {
     const handleLikeClick = async (isActive = false, newCount: number) => {
         setIsActiveLike(isActive);
         setCountLike(newCount);
-
-        // Здесь можно добавить логику для обновления лайков на сервере, если необходимо
+        
     };
 
     return (

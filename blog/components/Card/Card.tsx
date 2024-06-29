@@ -1,11 +1,12 @@
 
-import { Htag, Tag, Date, Like, Ptag, ReadingTime } from '../../components';
+import { Htag, Tag, Date, Ptag, ReadingTime } from '../../components';
 import styles from './Card.module.css';
 import img from '../../public/img-blog.png';
 import Image from 'next/image';
 import ArrowRight from '../../public/arrow-more.svg';
 import { getPosts } from '@/api/posts';
-import LikeClient from '../LikeClient/Like';
+import LikeClient from '../Like/LikeClient';
+
 
 
 export async function Card() {
@@ -13,8 +14,8 @@ export async function Card() {
 
 	return (
 		<>
-			{posts.map(m => (
-				<div key={m.id} className={styles.card}>
+			{posts.map(p => (
+				<div key={p.id} className={styles.card}>
 					<div className={styles['card__img']}>
 						<Image src={img} alt='Превьюшка' />
 					</div>
@@ -27,12 +28,12 @@ export async function Card() {
 									<Date>1 месяц назад</Date>
 								</div>
 								<div>
-								<LikeClient postId={m.id} />
+								<LikeClient postId={p.id} />
 								</div>
 							</div>
-							<Htag htag='h3'>{m.title}</Htag>
+							<Htag htag='h3'>{p.title}</Htag>
 							<Ptag size='s'>
-								{m.body}
+								{p.body}
 							</Ptag>
 						</div>
 						<div className={styles['card-body__bottom']}>
