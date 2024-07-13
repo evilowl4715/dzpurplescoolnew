@@ -1,7 +1,7 @@
 import { Card } from '@/components';
-import styles from './page.module.css';
+import styles from '../page.module.css';
 
-export default function Home() {
+export default function Posts() {
 	return (
 		<main className={styles.main}>
 			<div className={styles['card-list']}>
