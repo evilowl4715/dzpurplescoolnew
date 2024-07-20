@@ -5,12 +5,12 @@ import cn from 'classnames';
 import LikeIcon from '../../public/like.svg';
 import { useEffect, useState } from 'react';
 
-
 export const Like = ({
-	children,
 	isActive = false,
 	count = 0,
 	setLike,
+	disableButton = false,
+	showCount = false,
 	className,
 	...props
 }: LikeProps): JSX.Element => {
@@ -23,6 +23,7 @@ export const Like = ({
 	}, [isActive, count]);
 
 	const clickLike = () => {
+		if (disableButton) return;
 		const newActive = !active;
 		const newCount = newActive ? likeCount + 1 : likeCount - 1;
 		setActive(newActive);
@@ -35,12 +36,13 @@ export const Like = ({
 	return (
 		<div
 			className={cn(styles.like, className, {
-				[styles.active]: isActive
+				[styles.active]: isActive && !disableButton,
+				[styles.circle]: !showCount
 			})}
 			{...props}
 			onClick={clickLike}
 		>
-			{children}
+			{showCount && likeCount}
 			<LikeIcon />
 		</div>
 	);

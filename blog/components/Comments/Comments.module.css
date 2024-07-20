@@ -1,0 +1,64 @@
+.comments {
+	margin-top: 50px;
+}
+
+.commentsList {
+	margin-top: 20px;
+	margin-bottom: 25px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.commentTop {
+	display: flex;
+	gap: 7px;
+	align-items: center;
+	margin-bottom: 10px;
+}
+
+.commentTop strong {
+	font-size: 12px;
+	font-weight: bold;
+	color: #4b4b4b;
+}
+
+.commentTop a {
+	font-size: 12px;
+	color: #6e6e6e;
+}
+
+.commentBody {
+	font-size: 16px;
+	color: #4b4b4b;
+}
+
+.commentsForm {
+	max-width: 650px;
+	width: 100%;
+}
+
+.submit {
+	background: #303030;
+	border-radius: 8px;
+	max-width: 229px;
+	width: 100%;
+	height: 48px;
+	box-sizing: border-box;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: none;
+	font-family: inherit;
+	font-weight: 700;
+	font-size: 15px;
+	line-height: 140%;
+	text-align: center;
+	color: #fff;
+    transition: all 0.3s;
+}
+
+.submit:hover {
+    background: #5a5a5a;
+}

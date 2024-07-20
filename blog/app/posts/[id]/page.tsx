@@ -1,5 +1,6 @@
 import { getPosts } from '@/api/posts';
 import { API } from '@/app/api';
+import { DetailPost } from '@/components/DetailPost/DetailPost';
 import { PostsModel } from '@/interface/posts.interface';
 
 // Функция для генерации статических параметров
@@ -27,9 +28,10 @@ interface PostProps {
 export default async function Post({ params }: PostProps) {
 	const post = await getPostData(params.id);
 	return (
-		<>
-			<h3>{post.title}</h3>
-			{post.body}
-		</>
+		<DetailPost post={post}/>
+		// <div className="">
+		// 	<h3>{post.title}</h3>
+		// 	{post.body}
+		// </div>
 	);
 }
