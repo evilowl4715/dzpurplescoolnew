@@ -1,9 +1,9 @@
 import { getPosts } from '@/api/posts';
 import { API } from '@/app/api';
-import { DetailPost } from '@/components/DetailPost/DetailPost';
+import { PagePostDetail } from '@/components/PagePostDetail/PagePostDetail';
+import { CommentsModel } from '@/interface/comments.interface';
 import { PostsModel } from '@/interface/posts.interface';
 
-// Функция для генерации статических параметров
 export async function generateStaticParams() {
 	const posts = await getPosts();
 	return posts.map(post => ({
@@ -11,14 +11,20 @@ export async function generateStaticParams() {
 	}));
 }
 
-// Функция для получения данных поста
-async function getPostData(id: string): Promise<PostsModel> {
-	const res = await fetch(`${API.posts}/${id}`);
-	if (!res.ok) {
-		throw new Error('Ошибка загрузки поста');
+// Функция для получения данных поста и комментариев
+async function getPostData(id: string): Promise<{ post: PostsModel, comments: CommentsModel[] }> {
+	const [postRes, commentsRes] = await Promise.all([
+		fetch(`${API.posts}/${id}`),
+		fetch(`${API.posts}/${id}/comments`)
+	]);
+
+	if (!postRes.ok || !commentsRes.ok) {
+		throw new Error('Ошибка загрузки поста или комментариев');
 	}
-	const post = await res.json();
-	return post;
+
+	const post = await postRes.json();
+	const comments = await commentsRes.json();
+	return { post, comments };
 }
 
 interface PostProps {
@@ -26,12 +32,12 @@ interface PostProps {
 }
 
 export default async function Post({ params }: PostProps) {
-	const post = await getPostData(params.id);
+	const { post, comments } = await getPostData(params.id);
 	return (
-		<DetailPost post={post}/>
-		// <div className="">
-		// 	<h3>{post.title}</h3>
-		// 	{post.body}
-		// </div>
+		<>
+			<PagePostDetail post={post} comments={comments}/>
+			{/* <DetailPost post={post} />
+			<Comments comments={comments} /> */}
+		</>
 	);
 }

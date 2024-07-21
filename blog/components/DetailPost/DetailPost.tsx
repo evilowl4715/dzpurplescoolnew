@@ -1,5 +1,5 @@
 'use client';
-import { Tag, Date, Comments } from '../../components';
+import { Tag, Date } from '../../components';
 import styles from './DetailPost.module.css';
 import { DetailPostProps } from './DetailPost.props';
 import LikeClient from '../Like/LikeClient';
@@ -53,9 +53,10 @@ export const DetailPost = ({ post }: DetailPostProps) => {
 						countLike={countLike}
 						isActiveLike={isActiveLike}
 						handleLikeClick={handleLikeClick}
+						disableButton={false}
+						showCount={false}
 					/>
 				</div>
-				<Comments/>
 			</div>
 		</div>
 	);

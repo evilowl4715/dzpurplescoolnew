@@ -11,12 +11,11 @@ interface LikeClientProps {
 }
 
 export default function LikeClient({
-	postId,
 	countLike,
 	isActiveLike,
 	handleLikeClick,
 	disableButton = false,
-	showCount = false
+	showCount = true
 }: LikeClientProps) {
 
 	return (
