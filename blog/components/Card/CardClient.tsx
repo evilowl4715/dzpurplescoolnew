@@ -1,17 +1,32 @@
-import { Htag, Tag, Date, Ptag, ReadingTime } from '../../components';
+'use client';
+import { Htag, Tag, Date, Ptag, ReadingTime, Like } from '../../components';
 import styles from './Card.module.css';
 import img from '../../public/img-blog.png';
 import Image from 'next/image';
 import ArrowRight from '../../public/arrow-more.svg';
 import { PostsModel } from '@/interface/posts.interface';
-import LikeClient from '../Like/LikeClient';
 import Link from 'next/link';
+import { useState } from 'react';
 
 interface CardClientProps {
 	posts: PostsModel[];
 }
 
 export function CardClient({ posts }: CardClientProps) {
+	const [likes, setLike] = useState<{
+		[key: number]: { count: number; isActive: boolean };
+	}>({});
+
+	const handleLikeClick = (
+		postId: number,
+		isActive: boolean,
+		newCount: number
+	) => {
+		setLike(prevLikes => ({
+			...prevLikes,
+			[postId]: { isActive, count: newCount }
+		}));
+	};
 	return (
 		<>
 			{posts.map(p => (
@@ -28,7 +43,14 @@ export function CardClient({ posts }: CardClientProps) {
 									<Date>1 месяц назад</Date>
 								</div>
 								<div>
-									<LikeClient postId={p.id} />
+									<Like
+										postId={p.id}
+										countLike={likes[p.id]?.count || 0}
+										isActiveLike={likes[p.id]?.isActive || false}
+										handleLikeClick={(isActive, newCount) =>
+											handleLikeClick(p.id, isActive, newCount)
+										}
+									/>
 								</div>
 							</div>
 							<Htag htag='h3'>{p.title}</Htag>

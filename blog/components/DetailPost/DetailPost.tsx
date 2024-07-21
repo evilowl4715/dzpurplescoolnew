@@ -2,7 +2,7 @@
 import { Tag, Date } from '../../components';
 import styles from './DetailPost.module.css';
 import { DetailPostProps } from './DetailPost.props';
-import LikeClient from '../Like/LikeClient';
+import { Like } from '../Like/Like';
 import parse from 'html-react-parser';
 import { useState } from 'react';
 
@@ -29,7 +29,7 @@ export const DetailPost = ({ post }: DetailPostProps) => {
 						<span>·</span>
 						<Date>3 минуты</Date>
 						<span>·</span>
-						<LikeClient
+						<Like
 							postId={post.id}
 							countLike={countLike}
 							isActiveLike={isActiveLike}
@@ -48,7 +48,7 @@ export const DetailPost = ({ post }: DetailPostProps) => {
 				<div className={styles.content}>{parse(post.body)}</div>
 				<div className={styles.postLike}>
 					<p>Понравилось? Жми</p>
-					<LikeClient
+					<Like
 						postId={post.id}
 						countLike={countLike}
 						isActiveLike={isActiveLike}

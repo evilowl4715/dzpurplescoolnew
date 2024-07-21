@@ -4,6 +4,6 @@ export interface LikeProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivEleme
     isActive?: boolean,
     count?: number,
     setLike?: (isActive: boolean, newCount: number) => void;
-    disableButton: boolean;
-    showCount: boolean;
+    disableButton?: boolean;
+    showCount?: boolean;
 }

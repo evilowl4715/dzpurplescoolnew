@@ -1,49 +1,28 @@
-'use client';
-import styles from './Like.module.css';
-import { LikeProps } from './Like.props';
-import cn from 'classnames';
-import LikeIcon from '../../public/like.svg';
-import { useEffect, useState } from 'react';
+import {LikeСlient} from './LikeClient';
+interface LikeClientProps {
+	postId: number;
+	countLike?: number;
+	isActiveLike?: boolean;
+	handleLikeClick?: (isActive: boolean, newCount: number) => void;
+	disableButton?: boolean;
+	showCount?: boolean;
+}
 
-export const Like = ({
-	isActive = false,
-	count = 0,
-	setLike,
+export function Like({
+	countLike,
+	isActiveLike,
+	handleLikeClick,
 	disableButton = false,
-	showCount = false,
-	className,
-	...props
-}: LikeProps): JSX.Element => {
-	const [active, setActive] = useState<boolean>(isActive);
-	const [likeCount, setLikeCount] = useState<number>(count);
-
-	useEffect(() => {
-		setActive(isActive);
-		setLikeCount(count);
-	}, [isActive, count]);
-
-	const clickLike = () => {
-		if (disableButton) return;
-		const newActive = !active;
-		const newCount = newActive ? likeCount + 1 : likeCount - 1;
-		setActive(newActive);
-		setLikeCount(newCount);
-		if (setLike) {
-			setLike(newActive, newCount);
-		}
-	};
+	showCount = true
+}: LikeClientProps) {
 
 	return (
-		<div
-			className={cn(styles.like, className, {
-				[styles.active]: isActive && !disableButton,
-				[styles.circle]: !showCount
-			})}
-			{...props}
-			onClick={clickLike}
-		>
-			{showCount && likeCount}
-			<LikeIcon />
-		</div>
+		<LikeСlient
+			isActive={isActiveLike}
+			count={countLike}
+			setLike={handleLikeClick}
+			disableButton={disableButton}
+			showCount={showCount}
+		/>
 	);
-};
+}
