@@ -20,3 +20,20 @@
 	line-height: 140%;
 	color: rgba(78, 93, 124, 0.5);
 }
+
+.inputWrapper {
+	position: relative;
+}
+
+.error {
+	border: 1px solid red;
+}
+
+.errorMessage {
+	color: red;
+	display: block;
+	position: absolute;
+	bottom: 1px;
+	left: 0;
+	font-size: 13px;
+}

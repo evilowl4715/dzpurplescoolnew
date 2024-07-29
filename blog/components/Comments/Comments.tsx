@@ -1,5 +1,5 @@
 'use client';
-import { Input, Textarea, Htag } from '../index';
+import { Htag } from '../index';
 import styles from './Comments.module.css';
 import { CommentsProps } from './Comments.props';
 
@@ -19,13 +19,6 @@ export function Comments({ comments }: CommentsProps) {
 							<div className={styles.commentBody}>{c.body}</div>
 						</div>
 					))}
-			</div>
-			<div className={styles.commentsForm}>
-				<Input placeholder='Имя' />
-				<Textarea placeholder='Комментарий' />
-				<button type='button' className={styles.submit}>
-					Отправить
-				</button>
 			</div>
 		</div>
 	);
