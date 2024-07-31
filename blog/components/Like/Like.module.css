@@ -8,6 +8,21 @@
 	cursor: pointer;
 }
 
+.circle {
+	width: 48px;
+	height: 48px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 100%;
+	border: 1px solid #303030;
+	transition: all 0.3s;
+}
+
+.circle.active {
+	border: 1px solid red;
+}
+
 .active path {
 	stroke: red;
 }
